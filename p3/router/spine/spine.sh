@@ -1,15 +1,9 @@
 #!/bin/sh
 
-# 1. 既存のIP設定を完全にクリーンアップ
-ip addr flush dev lo
-ip addr flush dev eth0
-ip addr flush dev eth1
-ip addr flush dev eth2
-
-# 2. 自身のLoopbackアドレス（VTEP識別用）を設定
+# 1. 自身のLoopbackアドレス（VTEP識別用）を設定
 ip addr add 1.1.1.1/32 dev lo
 
-# 3. 各Leafと繋がる物理ポートにIPアドレスを設定
+# 2. 各Leafと繋がる物理ポートにIPアドレスを設定
 # Leaf1
 ip addr add 10.1.1.1/30 dev eth0
 ip link set eth0 up

@@ -3,9 +3,6 @@
 LOOPBACK_ADDR=1.1.1.3
 LOOPBACK_MASK=/32
 IP_ADDR=10.1.1.6/30
-ip addr flush dev lo
-ip addr flush dev eth0
-
 ip addr add ${LOOPBACK_ADDR}${LOOPBACK_MASK} dev lo
 ip addr add ${IP_ADDR} dev eth0
 ip link set eth0 up
